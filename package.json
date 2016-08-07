@@ -4,12 +4,14 @@
   "description": "COMP 431/531 starter",
   "main": "./src/index.js",
   "scripts": {
-    "clean": "rimraf dist",
+    "clean": "rimraf dist/bundle.js*",
     "lint": "eslint src --ext .js --ext .jsx --cache",
     "watch": "webpack --watch",
     "build": "webpack",
     "deploy": "webpack && surge -p dist",
+    "prestart": "npm run build",
     "start": "webpack-dev-server --content-base dist",
+    "test": "npm run mocha",
     "mocha": "mocha --compilers js:babel-core/register --recursive src/**/*.spec.js",
     "karma": "karma start || exit 0",
     "e2e": "mocha --opts e2e/mocha.opts --reporter spec e2e/*.spec.js",
@@ -18,6 +20,10 @@
     "e2e-serve": "cd dist && (python -m SimpleHTTPServer 8080 || python -m http.server 8080)"
   },
   "author": "Scott Pollack",
+  "engines": {
+    "node": ">=6",
+    "npm": ">=3"
+  },
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.8.0",
