@@ -11,12 +11,13 @@
     "deploy": "webpack -p && surge -p dist",
     "start": "webpack-dev-server --content-base dist -d",
     "test": "npm run mocha",
-    "mocha": "mocha --compilers js:babel-core/register --recursive src/**/*.spec.js",
+    "test:watch": "npm run mocha -- -w",
+    "mocha": "mocha --opts mocha.opts src/**/*.spec.js",
     "karma": "karma start || exit 0",
-    "e2e": "mocha --opts e2e/mocha.opts --reporter spec e2e/*.spec.js",
-    "e2e-watch": "mocha -w --opts e2e/mocha.opts --reporter spec",
-    "e2e-xunit": "mocha --opts e2e/mocha.opts --reporter xunit e2e/*.spec.js > e2e/results.xml",
-    "e2e-serve": "cd dist && (python -m SimpleHTTPServer 8080 || python -m http.server 8080)"
+    "e2e": "mocha --opts mocha.opts --reporter spec e2e/*.spec.js",
+    "e2e:watch": "npm run e2e -- -w",
+    "e2e:xunit": "mocha --opts mocha.opts --reporter xunit e2e/*.spec.js > e2e/results.xml",
+    "e2e:serve": "cd dist && (python -m SimpleHTTPServer 8080 || python -m http.server 8080)"
   },
   "author": "Scott Pollack",
   "engines": {
@@ -49,6 +50,7 @@
     "istanbul-react": "^1.1.0",
     "jquery": "^3.1.0",
     "jsdom": "^9.2.1",
+    "jsdom-global": "^2.1.0",
     "json-loader": "^0.5.4",
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^1.0.1",
