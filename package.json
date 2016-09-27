@@ -17,7 +17,7 @@
     "e2e": "mocha --opts mocha.opts --reporter spec e2e/*.spec.js",
     "e2e:watch": "npm run e2e -- -w",
     "e2e:xunit": "mocha --opts mocha.opts --reporter xunit e2e/*.spec.js > e2e/results.xml",
-    "e2e:serve": "cd dist && (python -m SimpleHTTPServer 8080 || python -m http.server 8080)"
+    "e2e:serve": "serve dist"
   },
   "author": "Scott Pollack",
   "engines": {
@@ -73,6 +73,7 @@
     "redux-thunk": "^2.1.0",
     "rimraf": "^2.5.4",
     "selenium-webdriver": "^2.53.2",
+    "serve": "^1.4.0",
     "sinon": "^2.0.0-pre",
     "source-map-loader": "^0.1.5",
     "style-loader": "^0.13.1",
