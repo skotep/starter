@@ -11,7 +11,7 @@
     "build": "webpack -d",
     "deploy": "webpack -p && surge -p dist",
     "dev": "webpack-dev-server --content-base dist --inline -d",
-    "start": "serve dist",
+    "start": "serve -p 8080 dist",
 
     "test": "mocha --opts mocha.opts src/**/*.spec.js",
     "test:watch": "npm run test -- -w",
